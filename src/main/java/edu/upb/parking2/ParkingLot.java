@@ -14,7 +14,8 @@ public class ParkingLot <T extends Comparable<T>> implements IParkingLot<T>{
     private ParkingSpot first;
     private ParkingSpot last;
     private ParkingSpot current;
-
+    
+    
     public ParkingSpot getFirst() {
         return first;
     }
@@ -53,10 +54,9 @@ public class ParkingLot <T extends Comparable<T>> implements IParkingLot<T>{
     }
 
     @Override
-    public void add(T spot) {
+    public void create(T spot) {
         
         ParkingSpot<T> current = new ParkingSpot(spot);
-        //ParkingSpot<T> current = first;
         
         if (first == null){
             first = current;
@@ -72,4 +72,8 @@ public class ParkingLot <T extends Comparable<T>> implements IParkingLot<T>{
             
         }
     }
+    
+    
+    
+    
 }

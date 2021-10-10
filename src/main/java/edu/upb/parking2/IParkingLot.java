@@ -11,5 +11,5 @@ package edu.upb.parking2;
  */
 public interface IParkingLot <T> {
     
-    public void add(T spot);
+    public void create(T spot);
 }
