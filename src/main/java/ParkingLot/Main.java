@@ -68,6 +68,13 @@ public class Main {
         
         parking.getCircularParking().print();
         
+        System.out.println("---------------------");
+        
+        //parking.deleteLP("DFR-193");
+        parking.deleteId(234);
+        
+        parking.getCircularParking().print();
+        
     }
     
 }

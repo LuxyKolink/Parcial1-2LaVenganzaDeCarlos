@@ -79,15 +79,58 @@ public class Parking {
         
     }
     
-    public void delete(String licensePlate){
+    
+    
+    public void deleteLP(String licensePlate){
         
         ParkingSpot deleteVehicle = circularParking.getFirst();
         
         String vehicleDelete = licensePlate;
         
-        for(int i = 0; i<10; i++){
+        for(int i = 0; i<=10; i++){
+            
+            Vehicle vehicle = (Vehicle) deleteVehicle.getValue();
+            
+            if(vehicle.getLicensePlate().equals(vehicleDelete)){
+                
+                deleteVehicle.setValue(null);
+                current = deleteVehicle;
+                return;
+                
+            }
+            
+            deleteVehicle = deleteVehicle.getNext();
             
         }
+        
+        System.out.println("El vehículo que se está buscando no se encuentra en el parqueadero.");
+    }
+    
+    
+    public void deleteId(int id){
+        
+        ParkingSpot deleteDriver = circularParking.getFirst();
+        
+        int driverDelete = id;
+        
+        for(int i = 0; i<=10; i++){
+            
+            Vehicle vehicle = (Vehicle) deleteDriver.getValue();
+            Driver driver = vehicle.getOwner();
+            
+            if(driver.getId() == driverDelete){
+                
+                deleteDriver.setValue(null);
+                current = deleteDriver;
+                return;
+                
+            }
+            
+            deleteDriver = deleteDriver.getNext();
+            
+        }
+        
+        System.out.println("El vehículo que se está buscando no se encuentra en el parqueadero.");
     }
     
 }
