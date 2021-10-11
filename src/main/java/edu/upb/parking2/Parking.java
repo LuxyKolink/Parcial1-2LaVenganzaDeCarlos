@@ -10,10 +10,11 @@ package edu.upb.parking2;
  */
 public class Parking {
     
+    //ParkingSpot lefty = Parking.this.getCurrent();
+    //ParkingSpot righty = Parking.this.getCurrent();
+    
     private ParkingSpot current = null;
     private ParkingLot<Vehicle> circularParking;
-    
-    
     
     public Parking() {
         
@@ -23,23 +24,6 @@ public class Parking {
         }
     }
     
-    public void add(Vehicle molanoVehicles){
-        
-        //   il = contador izquierda(left)
-        int il = 0;
-        int ir = 0;
-        
-        if(current == null){
-            circularParking.setFirst(current);
-            current = circularParking.getFirst();
-        }
-        while(il <= 5 && ir <= 5){
-            
-            if(current)
-    }
-        
-    }
-
     public ParkingLot<Vehicle> getCircularParking() {
         return circularParking;
     }
@@ -56,5 +40,54 @@ public class Parking {
         this.current = current;
     }
     
+    
+    public void add(Vehicle molanoVehicle){
+        
+        //   il = contador izquierda(left)
+        int i = 0;
+        
+        
+        Vehicle newVehicle = molanoVehicle;
+        
+        if(current == null){
+            //circularParking.setFirst(current);
+            current = circularParking.getFirst();
+        }
+        
+        ParkingSpot lefty = Parking.this.getCurrent();
+        ParkingSpot righty = Parking.this.getCurrent();
+        
+        while(i <= 5){
+            
+            if(righty.getValue() == null || righty.getValue() == "IsEmpty"){
+                current = righty;
+                current.setValue(newVehicle);
+                return;
+            }
+            
+            righty = righty.getNext();
+        
+            if(lefty.getValue() == null || lefty.getValue() == "IsEmpty"){
+                current = lefty;
+                current.setValue(newVehicle);
+                return;
+            }
+        
+            lefty = lefty.getNext();
+            i++;
+    }
+        
+    }
+    
+    public void delete(String licensePlate){
+        
+        ParkingSpot deleteVehicle = circularParking.getFirst();
+        
+        String vehicleDelete = licensePlate;
+        
+        for(int i = 0; i<10; i++){
+            
+        }
+    }
     
 }

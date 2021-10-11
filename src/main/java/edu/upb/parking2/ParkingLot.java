@@ -40,17 +40,23 @@ public class ParkingLot <T extends Comparable<T>> implements IParkingLot<T>{
         this.current = current;
     }
     
-    public String print() {
+    public void print() {
 
         ParkingSpot current = first;
-        String result = "";
-
+        //String result = "";
+            
+        for(int i = 0; i < 10; i++){
+            System.out.println(current.getValue());
+            current = current.getNext();
+        }
+        /*
         do{
             result += current.showInformation() + "\n";
             current = current.getNext();
         }while (current != first);
 
         return result;
+        */
     }
 
     @Override
